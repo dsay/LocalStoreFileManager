@@ -13,7 +13,7 @@ final class LocalStoreFileManagerTests: XCTestCase {
     }
     
     func deleteAll() {
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         
         do {
             let fileURLs = try FileManager.default.contentsOfDirectory(at: documentsUrl,
@@ -22,7 +22,9 @@ final class LocalStoreFileManagerTests: XCTestCase {
             for fileURL in fileURLs {
                 try FileManager.default.removeItem(at: fileURL)
             }
-        } catch  { print(error) }
+        } catch {
+            print(error)
+        }
     }
     
     func testIsExists() throws {
